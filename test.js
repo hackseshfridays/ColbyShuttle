@@ -14,10 +14,8 @@ const getShuttleRoute =
   return resp.data;
 }
 
-(async () => {
-  const resp = await getShuttleRoute();
-  console.log(resp)
-
+const seconds = 1000;
+setInterval(async () => {
   const resp2 = await getShuttleLocation();
   console.log(resp2)
-})();
+}, 5 * seconds)
