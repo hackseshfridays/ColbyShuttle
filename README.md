@@ -11,4 +11,6 @@ To get routes for map: /GetRoutesForMap  <br>
 To get vehicle location: /GetMapVehiclePoints <br>
 To get the vehicle name and ids: /GetVehicles and /GetVehicleRoutes <br>
 To get map stop estimates:/GetMapStopEstimates <br>
+To get next stop estimate: / GetRouteVehicleEstimates <br>
+To get active shuttle routes: /GetScheduleRouteActiveTimeSpans
 
