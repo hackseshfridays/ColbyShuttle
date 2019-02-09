@@ -27,14 +27,14 @@
     <div id='map'></div>
 
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iZHVyc3QiLCJhIjoiY2pyd20xZGpwMGU4djN5cXJ5cm1hMDBuaiJ9.GbZMbOrrR_7sxucCTNXzlA';
+        mapboxgl.accessToken = process.env.PK_MAPBOX_KEY;
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
             zoom: 0
         });
 
-        var url = 'http://localhost:3000';
+        var url = 'http://127.0.0.1:3000';
         map.on('load', function () {
             window.setInterval(function () {
                 map.getSource('drone').setData(url);

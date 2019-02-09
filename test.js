@@ -10,19 +10,12 @@ const getShuttleLocation =
   return resp.data;
 }
 
-const getShuttleRoute =
-    async () => {
-  const resp = await axios.get(BASE_URL + '/GetRoutes');
-  return resp.data;
-}
-
 const getEstimates =
     async () => {
   const resp = await axios.get(BASE_URL + '/GetMapStopEstimates')
   return resp.data;
 }
 
-let isArriving = {};
 const seconds = 1000;
 
 const initialize =

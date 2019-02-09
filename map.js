@@ -1,6 +1,11 @@
 const axios = require('axios');
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000;
 const BASE_URL = 'https://colbyshuttle.ridesystems.net/Services/JSONPRelay.svc';
-const {speak} = require('./speak');
+
+let lat = 0;
+let lon = 0;
 
 const getShuttleLocation =
     async () => {
@@ -8,10 +13,7 @@ const getShuttleLocation =
   return resp.data;
 }
 
-let lat = 0;
-let lon = 0;
-
-let isArriving = false;
+// update the location of the first running bus (hardcoded) every second
 const seconds = 1000;
 setInterval(async () => {
   const resp = await getShuttleLocation();
@@ -20,11 +22,7 @@ setInterval(async () => {
   lon = Longitude;
 }, 1 * seconds)
 
-const express = require('express')
-const app = express()
-const port = 3000
-
-
+// CORS copy pasta
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
@@ -33,10 +31,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', (req, res) => res.send({
-  geometry:
-      {type: 'Point', coordinates: [lat, lon], type: 'Feature', properties: []}
-
+// spit out the data in the right format for mapbox
+app.get('/', (req, res) => res.json({
+  geometry: {type: 'Point', coordinates: [lon, lat]},
+  type: 'Feature',
+  properties: []
 }))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
