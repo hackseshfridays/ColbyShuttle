@@ -1,17 +1,11 @@
-const axios = require('axios');
+const {getShuttleLocation} = require('../api/colbyshuttle');
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
-const BASE_URL = 'https://colbyshuttle.ridesystems.net/Services/JSONPRelay.svc';
 
+// start values for the latitude and longitude
 let lat = 0;
 let lon = 0;
-
-const getShuttleLocation =
-    async () => {
-  const resp = await axios.get(BASE_URL + '/GetMapVehiclePoints');
-  return resp.data;
-}
 
 // update the location of the first running bus (hardcoded) every second
 const seconds = 1000;
@@ -22,7 +16,7 @@ setInterval(async () => {
   lon = Longitude;
 }, 1 * seconds)
 
-// CORS copy pasta
+// CORS copy pasta, the tastiest type of pasta
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
