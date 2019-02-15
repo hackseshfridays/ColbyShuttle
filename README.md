@@ -17,5 +17,6 @@ To get active shuttle routes: /GetScheduleRouteActiveTimeSpans
 ## Structure
 This is a monorepo of sorts. Within this repo you will find the following projects:
 * **Announcer (/announcer)**: an application that, every minute, announces the locations of each bus
-* **GUI (/gui)**: an application that maps the buses on a map using MapBox
 * **API (/api)**: a nice wrapper around the GET http requests
+* **GUI (/gui)**: an application that maps the buses on a map using MapBox 
+*  **Twilio Text Status Update Bot (/textupdater)**: texts updates to people so that they don't need to look at the app when waiting for the bus to arrive
