@@ -1,15 +1,11 @@
 {
-  "name": "colbyshuttle",
-  "version": "1.0.0",
-  "description": "",
-  "main": "test.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "ColbyShuttleAnnouncer",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/robertDurst/ColbyShuttle.git",
+  "author": "robertDurst <rsdurst@colby.edu>",
+  "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0",
-    "express": "^4.16.4"
+    "maverick": "https://github.com/hackseshfridays/maverick.git"
   }
 }

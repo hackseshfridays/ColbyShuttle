@@ -1,5 +1,4 @@
-const {getShuttleLocation, getMapStopEstimates} =
-    require('../api/colbyshuttle');
+const {getShuttleLocation, getMapStopEstimates} = require('maverick');
 const {speak} = require('./speak');
 
 // Global Constants
